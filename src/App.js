@@ -1,5 +1,6 @@
 import TopBar from "./Components/TopBar/TopBar";
 import Home from "./Pages/Home/Home";
+import Login from "./Pages/Login/Login";
 import Settings from "./Pages/Settings/Settings";
 import SinglePost from "./Pages/SinglePost/SinglePost";
 import Write from "./Pages/Write/Write";
@@ -13,7 +14,8 @@ function App() {
         {/* <Home /> */}
         {/* <SinglePost /> */}
         {/* <Write /> */}
-        <Settings />
+        {/* <Settings /> */}
+        <Login />
       </>
     </div>
   );
