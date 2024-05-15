@@ -1,3 +1,11 @@
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  
+} from 'react-router-dom'
+
 import TopBar from "./Components/TopBar/TopBar";
 import Home from "./Pages/Home/Home";
 import Login from "./Pages/Login/Login";
@@ -8,18 +16,32 @@ import Write from "./Pages/Write/Write";
 
 
 function App() {
+  const user = false
+
   return (
-    <div className="App">
-      <>
-        <TopBar />
-        {/* <Home /> */}
-        {/* <SinglePost /> */}
-        {/* <Write /> */}
-        {/* <Settings /> */}
-        {/* <Login /> */}
-        <Register />
-      </>
-    </div>
+    <Router>
+      <TopBar />
+      <Routes>
+        <Route path = '/' element = {<Home />} />
+        <Route exact path = '/post/:postId' element = {<SinglePost />} />
+        <Route 
+          exact path = '/write' 
+          element = {user ? <Write /> : <Register />} 
+        />
+        <Route 
+          exact path = '/settings' 
+          element = {user ? <Settings /> : <Register />} 
+        />
+        <Route 
+          exact path = '/register'
+          element = {user ? <Home /> : <Register />}
+        />
+        <Route 
+          exact path = '/login'
+          element = {user ? <Home /> : <Login />}
+        />
+      </Routes>
+    </Router>
   );
 }
 
