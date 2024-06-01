@@ -1,11 +1,16 @@
 const express = require('express')
 const app = express()
-const port = 8080
+const {PORT, CLIENT_URL} = require('./constants')
+const cors = require('cors')
 
-app.use('/', (req, res) => {
-    console.log('This is the main URL')
-})
+const corsOptions = {
+    origin: CLIENT_URL,
+    credentials: true,
+    optionSuccessStatus: 200
+}
 
-app.listen(port, () => {
-    console.log(`Back end is listening on port ${port}`)
+app.use(cors(corsOptions))
+
+app.listen(PORT, () => {
+    console.log(`Back end is listening on port ${PORT}`)
 })
