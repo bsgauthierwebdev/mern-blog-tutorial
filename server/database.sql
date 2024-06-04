@@ -1,9 +1,9 @@
 -- Users Table
 
 CREATE TABLE users (
-    user_id: SERIAL PRIMARY KEY,
+    user_id: UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     username: VARCHAR(255) UNIQUE NOT NULL,
     email: VARCHAR(255) UNIQUE NOT NULL,
     password: VARCHAR(255) NOT NULL,
-    profile_picture TEXT
+    profile_picture_filename TEXT
 )
